@@ -10,8 +10,7 @@
 	<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
 	<meta name="author" content="jq22" />
 
-	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet'
-		  type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet'type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
@@ -21,16 +20,26 @@
 
 
 	<script type="text/javascript">
-        function copy() {
-			var test4="qusi0912";
-            document.execCommand(test4); // 执行浏览器复制命令
-            alert("复制成功！");
-        }
-		$('.animateTitle1').animatext({
-			speed: 300,
-			effect: 'flipInY',
-			reverse: false
-		  });
+     function copy(a,b) {
+
+     	var clipboard = new ClipboardJS('#rcopy', {
+     		text : function() {
+     			return a ;
+     		}
+     	});
+     	clipboard.on("success", function(e) {
+     		console.log(e);
+     		alert('复制成功');
+     		clipboard.destroy();
+     	});
+
+     	clipboard.on("error", function(e) {
+     		console.log(e);
+     		alert('复制失败');
+     		clipboard.destroy();
+     	});
+     }
+
 
     </script>
 </head>
@@ -50,7 +59,6 @@
 
 		<!-- Top Navigation -->
 		<header class="codrops-header">
-
 			<div class="well">
 				<h1 class="demo3 text-danger;" style="color: #18A367;">全国 高端 伴游</h1>
 			</div>
@@ -65,8 +73,8 @@
 			<div style="left: 100px;top: 20px;">
 				<img src="img/weixinsan.jpg" alt="img12"/>
 				<nav class="codrops-demos">
-					<a class="current-demo" onclick="copy();" href="index.html">复制微信：
-						<span id="copy" style="color: #18A367;">qusi0912</span></a>
+					<a class="current-demo"id="rcopy" onclick="copy('qusi0912','b')" href="javascript:void(0);" >复制微信：
+						<span  style="color: #18A367;">qusi0912</span></a>
 				</nav>
 			</div>
 		</header>
@@ -285,10 +293,10 @@
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="js/script.js"></script>
+<script src="js/clipboard.js"></script>
 <script type="text/javascript" src="js/dist/animatext.min.js"></script>
 <script src="js/ft-carousel.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-
 
 
 
